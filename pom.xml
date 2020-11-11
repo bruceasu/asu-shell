@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>me.asu</groupId>
+	<artifactId>asu-shell</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<properties>
+		<!-- MAVEN 配置 -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.test.skip>false</maven.test.skip>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>me.asu</groupId>
+			<artifactId>asu-util</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>me.asu</groupId>
+			<artifactId>asu-runner</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.randelshofer.quaqua</groupId>
+			<artifactId>quaqua</artifactId>
+			<version>9.1</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/quaqua.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.alee.laf</groupId>
+			<artifactId>weblaf-complete</artifactId>
+			<version>1.29</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/weblaf-complete-1.29.jar</systemPath>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/edu.princeton.cup/java-cup -->
+		<dependency>
+			<groupId>edu.princeton.cup</groupId>
+			<artifactId>java-cup</artifactId>
+			<version>10k</version>
+		</dependency>
+
+		<!-- 单元测试包 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<fork>true</fork>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<compilerArgs>
+						<!--<arg>-XX:MaxPermSize=512M</arg>-->
+						<arg>-verbose</arg>
+						<arg>-parameters</arg>
+						<!--<arg>-Xlint:unchecked</arg>-->
+						<!--<arg>-Xlint:deprecation</arg>-->
+						<!--<arg>-bootclasspath</arg>-->
+						<!--<arg>${env.JAVA_HOME}/jre/lib/rt.jar</arg>-->
+						<!--<arg>-extdirs</arg>-->
+						<!--<arg>${project.basedir}/src/main/webapp/WEB-INF/lib</arg>-->
+					</compilerArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
