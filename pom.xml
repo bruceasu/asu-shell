@@ -123,6 +123,75 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
+			<!-- jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>asu.shell.Main</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Specification-Title>${project.artifactId}</Specification-Title>
+							<Specification-Version>${project.version}</Specification-Version>
+							<Implementation-Title>${project.name}</Implementation-Title>
+							<Implementation-Version>${project.version}</Implementation-Version>
+							<Built-By>Asu</Built-By>
+							<!-- <Class-Path>. lib/ext.jar</Class-Path>-->
+						</manifestEntries>
+					</archive>
+					<!-- 由具体的项目自己指定 -->
+					<!--<excludes>-->
+					<!--<exclude>**/*.properties</exclude>-->
+					<!--<exclude>**/*.xml</exclude>-->
+					<!--<exclude>**/*.json</exclude>-->
+					<!--<exclude>**/*.groovy</exclude>-->
+					<!--<exclude>**/*.py</exclude>-->
+					<!--<exclude>**/*.jar</exclude>-->
+					<!--</excludes>-->
+				</configuration>
+			</plugin>
+			<!-- dependency -->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-dependency-plugin</artifactId>-->
+<!--				<version>2.10</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>copy-dependencies</id>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>copy-dependencies</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+
+			<plugin>
+				<groupId>com.jolira</groupId>
+				<artifactId>onejar-maven-plugin</artifactId>
+				<version>1.4.4</version>
+				<executions>
+					<execution>
+						<configuration>
+							<attachToBuild>true</attachToBuild>
+							<classifier>onejar</classifier>
+						</configuration>
+						<goals>
+							<goal>one-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
